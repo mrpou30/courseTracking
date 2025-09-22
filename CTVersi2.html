@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Course Tracking Pro</title>
+  <link rel="stylesheet" href="CTVersi2.css" />
+</head>
+<body>
+  <!-- Login Form -->
+  <div id="login-container" class="login-container neumorphic">
+    <h2>🔐 Login</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="login()">Login</button>
+    <p id="login-error" class="error"></p>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="app hidden animated-container">
+    <!-- Navbar -->
+    <nav class="navbar neumorphic">
+      <div class="nav-title">📘 Course Tracking Pro</div>
+      <div class="nav-controls">
+        <div class="nav-datetime" id="datetime">--:--:--</div>
+        <button id="darkModeToggle" class="btn-darkmode" onclick="toggleDarkMode()">🌙</button>
+        <button id="soundToggle" class="btn-darkmode" onclick="toggleSound()">🔊</button>
+      </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-container neumorphic">
+      <h3>📊 Progress Belajarmu</h3>
+      <div class="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+      <p id="progress-text">0% - Belum ada target</p>
+    </div>
+
+    <!-- Form Input -->
+    <div class="form-container neumorphic slide-up">
+      <h2>📝 Input Hasil Belajar</h2>
+      <div class="form-group">
+        <label>Tanggal</label>
+        <input type="date" id="tanggal" required />
+      </div>
+      <div class="form-group">
+        <label>Nama Materi</label>
+        <input type="text" id="namaMateri" placeholder="Contoh: JavaScript Dasar" required />
+      </div>
+      <div class="form-group">
+        <label>Catatan</label>
+        <textarea id="catatan" rows="4" placeholder="Catatan penting atau kendala..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Materi Selanjutnya</label>
+        <input type="text" id="materiSelanjutnya" placeholder="Contoh: DOM Manipulation" required />
+      </div>
+      <div class="form-group">
+        <label>Tanggal Materi Selanjutnya</label>
+        <input type="date" id="tanggalSelanjutnya" required />
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="checkbox" id="repeatReminder" checked />
+          🔁 Ingatkan berulang tiap hari sampai selesai
+        </label>
+      </div>
+      <div class="button-group">
+        <button class="btn-save" onclick="simpanData()">💾 Simpan</button>
+        <button class="btn-view" onclick="lihatData()">📁 Lihat File</button>
+      </div>
+    </div>
+
+    <!-- Calendar -->
+    <div class="calendar-container neumorphic">
+      <h3>📅 Kalender Belajar</h3>
+      <div class="calendar-header">
+        <button onclick="prevMonth()"><</button>
+        <span id="calendar-title">Januari 2025</span>
+        <button onclick="nextMonth()">></button>
+      </div>
+      <div id="calendar-grid" class="calendar-grid"></div>
+    </div>
+
+    <!-- Display Saved Data -->
+    <div id="saved-data-container" class="saved-container neumorphic hidden">
+      <h3>📁 Data Tersimpan</h3>
+      <div id="saved-list"></div>
+    </div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="CTVersi2.js"></script>
+</body>
+</html>
